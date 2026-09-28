@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f9fc;
+    color: #173452;
+}
+
+.page {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: #071725;
+    color: white;
+    padding: 22px 15px;
+    flex-shrink: 0;
+}
+
+.brand {
+    padding: 5px 15px 28px;
+}
+
+.brand-logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.brand-logo span {
+    color: #ed1c24;
+}
+
+.brand-subtitle {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 48px;
+    margin-top: -2px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-item {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 18px;
+    color: #d7e1ec;
+    text-decoration: none;
+
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.nav-item:hover {
+    background: #132638;
+}
+
+.nav-item.active {
+    background: #ed1c24;
+    color: white;
+}
+
+.icon {
+    width: 22px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.nav-divider {
+    height: 1px;
+    background: #263847;
+    margin: 15px 10px;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+}
+
+.topbar {
+    height: 72px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 32px;
+    border-bottom: 1px solid #e3ebf2;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification {
+    font-size: 23px;
+    margin-right: 15px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #102b45;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-size: 12px;
+}
+
+.user-info small {
+    color: #718096;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.arrow {
+    font-size: 15px;
+}
+
+.content {
+    padding: 25px 35px;
+}
+
+.back {
+    display: inline-block;
+    color: #294766;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.back:hover {
+    color: #ed1c24;
+}
+
+.content h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.form-card {
+    background: white;
+    border: 1px solid #dce6ee;
+    border-radius: 7px;
+    padding: 24px 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #294766;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-group label span {
+    color: #ed1c24;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #cfdde8;
+    border-radius: 5px;
+    background: white;
+    padding: 0 12px;
+    color: #38566f;
+    font-size: 13px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #ed1c24;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a5b5c3;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.price-input {
+    position: relative;
+}
+
+.price-input input {
+    padding-right: 35px;
+}
+
+.price-input span {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #718096;
+    font-size: 13px;
+}
+
+.description-group textarea {
+    height: 88px;
+    padding: 11px 12px;
+    resize: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.cancel-btn,
+.save-btn {
+    height: 42px;
+    border-radius: 5px;
+    padding: 0 28px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel-btn {
+    background: white;
+    color: #6b8295;
+    border: 1px solid #cfdde8;
+    text-decoration: none;
+}
+
+.cancel-btn:hover {
+    background: #f5f9fc;
+}
+
+.save-btn {
+    min-width: 100px;
+    background: #ed1c24;
+    color: white;
+    border: none;
+}
+
+.save-btn:hover {
+    background: #d8171e;
+}
+
+@media (min-width: 1400px) {
+
+    .sidebar {
+        width: 290px;
+    }
+
+    .content {
+        padding: 30px 45px;
+    }
+
+    .content h1 {
+        font-size: 32px;
+    }
+
+    .form-card {
+        padding: 28px 30px;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 46px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        padding: 20px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .cancel-btn,
+    .save-btn {
+        width: 100%;
+    }
+}
