@@ -62,71 +62,78 @@
                 </p>
 
 
-                <form action="/login" method="POST">
-
-                    @csrf
-
-                    
-
-                    <div class="input-group">
-
-                        <span class="input-icon"></span>
-
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email Address"
-                            required
-                        >
-
-                    </div>
+            @if(session('error'))
+                <div class="login-error">
+                    {{ session('error') }}
+                </div>
+            @endif
 
 
-                    
+            <form action="/login" method="POST" onsubmit="return validateLogin()">
 
-                    <div class="input-group">
+                @csrf
 
-                        <span class="input-icon"></span>
+                <div class="input-group">
 
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            required
-                        >
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email Address"
+                        required>
 
-                    </div>
+                </div>
 
+                <div class="input-group">
 
-                    
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        minlength="8"
+                        required>
 
-                    <div class="options">
+                </div>
 
-                        <label class="remember">
+                <div class="options">
 
-                            <input
-                                type="checkbox"
-                                name="remember"
-                            >
+                    <label class="remember">
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
 
-                            Remember me
+                    <a href="#" class="forgot">
+                        Forgot password?
+                    </a>
 
-                        </label>
-                        
-                        <a href="#" class="forgot">
-                            Forgot password?
-                        </a>
-                    </div>
-                    
-                    
+                </div>
 
-                    <button
-                        type="submit"
-                        class="login-btn"
-                    >
-                        Login →
-                    </button>
-                </form>
+                <button type="submit" class="login-btn">
+                    Login →
+                </button>
+
+            </form>
+
+            <script>
+            function validateLogin() {
+
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+
+                if (!email.endsWith('@gmail.com')) {
+                    alert('Please use a Gmail address ending with @gmail.com');
+                    return false;
+                }
+
+                if (password.length < 8) {
+                    alert('Password must be at least 8 characters.');
+                    return false;
+                }
+
+                return true;
+            }
+            </script>
 
                 <div class="register-link">
                     <span>Don't have an account?</span>

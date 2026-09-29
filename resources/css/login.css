@@ -286,3 +286,12 @@ body {
 .register-link a:hover {
     text-decoration: underline;
 }
+
+.login-error {
+    color: #ed1c24;
+    background: #ffe5e5;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}

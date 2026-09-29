@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -10,6 +11,8 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/login', function () {
     return redirect('/dashboard');
@@ -49,3 +52,4 @@ Route::get('/reports', function () {
 Route::get('/settings', function () {
     return view('settings');
 });
+

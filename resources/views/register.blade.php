@@ -58,7 +58,7 @@
                 </p>
 
 
-                <form action="/register" method="POST">
+                 <form action="/register" method="POST">
 
                     @csrf
 
