@@ -75,26 +75,131 @@
     
         <header class="topbar">
 
-            <div></div>
+    <div></div>
 
-            <div class="profile">
+    <div class="topbar-right">
 
-                <span class="notification">♧</span>
+        <!-- NOTIFICATION -->
+        <div class="notification-wrapper">
 
-                <div class="profile-circle">
+            <button
+                type="button"
+                class="notification-btn"
+                onclick="toggleNotifications(event)"
+            >
+                🔔
+                <span class="notification-badge">3</span>
+            </button>
+
+            <div class="notification-dropdown" id="notificationDropdown">
+
+                <div class="notification-header">
+                    <strong>Notifications</strong>
+                    <span>3 new</span>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon low">!</div>
+
+                    <div>
+                        <strong>Low Stock Alert</strong>
+                        <p>Oil Filter is low in stock.</p>
+                        <small>2 hours ago</small>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon out">×</div>
+
+                    <div>
+                        <strong>Out of Stock</strong>
+                        <p>Air Filter is out of stock.</p>
+                        <small>3 hours ago</small>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon new">+</div>
+
+                    <div>
+                        <strong>New Stock Added</strong>
+                        <p>Brake Pad was added.</p>
+                        <small>5 hours ago</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE BUTTON -->
+        <button
+            type="button"
+            class="profile-button"
+            onclick="toggleProfile(event)"
+        >
+
+            <div class="profile-circle">
+                JD
+            </div>
+
+            <div class="profile-info">
+                <strong>Juan Dela Cruz</strong>
+                <small>Branch Manager</small>
+            </div>
+
+            <span class="dropdown">⌄</span>
+
+        </button>
+
+
+        <!-- PROFILE DETAILS -->
+        <div class="profile-menu" id="profileMenu">
+
+            <div class="profile-header">
+
+                <div class="profile-circle large">
                     JD
                 </div>
 
-                <div class="profile-info">
+                <div>
                     <strong>Juan Dela Cruz</strong>
                     <small>Branch Manager</small>
                 </div>
 
-                <span class="dropdown">⌄</span>
+            </div>
+
+
+            <div class="profile-details">
+
+                <div>
+                    <span>Email</span>
+                    <strong>juan.delacruz@highluxx.com</strong>
+                </div>
+
+                <div>
+                    <span>Position</span>
+                    <strong>Branch Manager</strong>
+                </div>
+
+                <div>
+                    <span>Branch</span>
+                    <strong>HIGHLUXX Auto Care Center</strong>
+                </div>
 
             </div>
 
-        </header>
+
+            <a href="{{ url('/settings') }}" class="profile-settings">
+                ⚙ Account Settings
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
 
 
         
@@ -300,6 +405,79 @@
     </main>
     
 </div>
+<script>
+
+function toggleNotifications(event) {
+
+    event.stopPropagation();
+
+    const notification =
+        document.getElementById('notificationDropdown');
+
+    const profile =
+        document.getElementById('profileMenu');
+
+    // Close profile
+    profile.classList.remove('show');
+
+    // Open/close notification
+    notification.classList.toggle('show');
+}
+
+
+function toggleProfile(event) {
+
+    event.stopPropagation();
+
+    const profile =
+        document.getElementById('profileMenu');
+
+    const notification =
+        document.getElementById('notificationDropdown');
+
+    // Close notification
+    notification.classList.remove('show');
+
+    // Open/close profile
+    profile.classList.toggle('show');
+}
+
+
+// CLICK OUTSIDE
+document.addEventListener('click', function(event) {
+
+    const notification =
+        document.getElementById('notificationDropdown');
+
+    const profile =
+        document.getElementById('profileMenu');
+
+    const notificationWrapper =
+        document.querySelector('.notification-wrapper');
+
+    const profileButton =
+        document.querySelector('.profile-button');
+
+    // Close notification if clicked outside
+    if (
+        notificationWrapper &&
+        !notificationWrapper.contains(event.target)
+    ) {
+        notification.classList.remove('show');
+    }
+
+    // Close profile if clicked outside
+    if (
+        profileButton &&
+        !profileButton.contains(event.target) &&
+        !profile.contains(event.target)
+    ) {
+        profile.classList.remove('show');
+    }
+
+});
+
+</script>
 
 </body>
 </html>
